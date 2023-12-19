@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+{% load bootstrap5 %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css'%}">
+    <script src="https://kit.fontawesome.com/cec27b37b7.js" crossorigin="anonymous"></script>
+
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    <h1>{{ Header1 }}</h1>
+    <p> value = {{ value|default:"Нет данных" }}</p>
+    {% if value > 0 %}
+    <h3>Переменная больше нуля</h3>
+    {% else %}
+    <h3>Переменная не больше нуля</h3>
+    {% endif %}
+
+    <li>
+        {% for n in numbers %}
+        <ul>{{ n.title|lower }}, {{ n.date }}</ul>
+        {% endfor %}
+    </li>
+
+    <h3>Заголовок3</h3>
+    <h6>Заголовок6</h6>
+    <p>Параграф</p>
+    <a href="about/">Ссылка</a>
+    <div class='news1'>
+        <h2> Новость1 </h2>
+        <p> Текст новости </p>
+    </div>
+    <div class='news1'>
+        <h2> Новость2 </h2>
+        <p> Текст новости </p>
+    </div>
+    <div id='news2'>
+        <h2> Новость3 </h2>
+        <p> Текст новости </p>
+    </div>
+    <img src="https://cdn.thinglink.me/api/image/655498865562091522/1024/10/scaletowidth/0/0/1/1/false/true?wait=true">
+</body>
+</html>
