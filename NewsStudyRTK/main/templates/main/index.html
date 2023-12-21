@@ -4,7 +4,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="PMDash">
+    <meta name="author" content="Odr7n">
     <title>{{ title }}</title>
+    <style>
+        a:link {color: blue; text-decoration:none}
+        a:visited {color:pink; text-decoration:none}
+        a:hover {color:red; text-decoration:underline}
+        a:active {color:yellow; text-decoration:underline}
+    </style>
     <link rel="stylesheet" href="{% static 'main/css/style.css'%}">
     <script src="https://kit.fontawesome.com/cec27b37b7.js" crossorigin="anonymous"></script>
 
@@ -13,6 +21,9 @@
 </head>
 <body>
     <h1>{{ Header1 }}</h1>
+
+
+
     <p> value = {{ value|default:"Нет данных" }}</p>
     {% if value > 0 %}
     <h3>Переменная больше нуля</h3>
@@ -30,14 +41,17 @@
     <h6>Заголовок6</h6>
     <p>Параграф</p>
     <a href="about/">Ссылка</a>
+
     <div class='news1'>
         <h2> Новость1 </h2>
         <p> Текст новости </p>
     </div>
+
     <div class='news1'>
         <h2> Новость2 </h2>
         <p> Текст новости </p>
     </div>
+
     <div id='news2'>
         <h2> Новость3 </h2>
         <p> Текст новости </p>
