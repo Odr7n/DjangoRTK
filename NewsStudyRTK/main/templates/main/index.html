@@ -20,42 +20,93 @@
     {% bootstrap_javascript %}
 </head>
 <body>
-    <h1>{{ Header1 }}</h1>
+{% include 'main/sidebar.html'%}
+<div class="content">
 
-
-
-    <p> value = {{ value|default:"Нет данных" }}</p>
-    {% if value > 0 %}
-    <h3>Переменная больше нуля</h3>
-    {% else %}
-    <h3>Переменная не больше нуля</h3>
-    {% endif %}
-
-    <li>
-        {% for n in numbers %}
-        <ul>{{ n.title|lower }}, {{ n.date }}</ul>
+<!--Форма подтверждения выбора цвета-->
+    <form method="post">
+        {% csrf_token %}
+        <h3>Выберите цвет:</h3>
+        {% for color in colors %}
+            <input type="radio" id="{{ color }}" name="colors" value="{{ forloop.counter }}">
+            <label for="{{ color }}">{{ color }}</label> <br>
         {% endfor %}
-    </li>
+        <br>
+        <input class="btn-primary" type="submit" value="Сохранить">
+    </form>
 
-    <h3>Заголовок3</h3>
-    <h6>Заголовок6</h6>
-    <p>Параграф</p>
-    <a href="about/">Ссылка</a>
+<!--Форма ввода товара-->
+    <form method="post">
 
-    <div class='news1'>
-        <h2> Новость1 </h2>
-        <p> Текст новости </p>
+        {% csrf_token %}
+        <p>
+            <label> Введите название товара: </label>
+            <input type="text" name="title">
+        </p>
+        <br>
+        <p>
+            <label> Введите название товара: </label>
+            <input type="text" name="price">
+        </p>
+        <br>
+        <p>
+            <label> Введите количество товара: </label>
+            <input type="number" name="quantity" min="1" max="100">
+        </p>
+        <br>
+
+        <input class="btn-primary" type="submit" value="Создать товар">
+    </form>
+
+<!--Таблица с товарами-->
+    <table width="500 px" border="1px">
+        <tr>
+            <th> Товар </th>
+            <th> Цена </th>
+            <th> Кол-во </th>
+            <th> Итого </th>
+        </tr>
+        <tr>
+            <td> {{ water.title }} </td>
+            <td> {{ water.price }} </td>
+            <td> {{ water.quantity }} </td>
+            <td> {{ water.amount }} </td>
+        </tr>
+        <tr>
+            <td> {{ chocolate.title }} </td>
+            <td> {{ chocolate.price }} </td>
+            <td> {{ chocolate.quantity }} </td>
+            <td> {{ chocolate.amount }} </td>
+        </tr>
+
+    </table>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col col-sm-5">
+                <h1>контейнер 1</h1>
+                <h2> Новость1 </h2>
+                <p> Текст новости </p>
+            </div>
+        </div>
     </div>
+</div>
+<!--    <h1>{{ Header1 }}</h1>-->
 
-    <div class='news1'>
-        <h2> Новость2 </h2>
-        <p> Текст новости </p>
-    </div>
+<!--    <p> value = {{ value|default:"Нет данных" }}</p>-->
+<!--    {% if value > 0 %}-->
+<!--    <h3>Переменная больше нуля</h3>-->
+<!--    {% else %}-->
+<!--    <h3>Переменная не больше нуля</h3>-->
+<!--    {% endif %}-->
 
-    <div id='news2'>
-        <h2> Новость3 </h2>
-        <p> Текст новости </p>
-    </div>
-    <img src="https://cdn.thinglink.me/api/image/655498865562091522/1024/10/scaletowidth/0/0/1/1/false/true?wait=true">
+<!--    <li>-->
+<!--        {% for n in numbers %}-->
+<!--        <ul>{{ n.title|lower }}, {{ n.date }}</ul>-->
+<!--        {% endfor %}-->
+<!--    </li>-->
+
+<img src="https://cdn.thinglink.me/api/image/655498865562091522/1024/10/scaletowidth/0/0/1/1/false/true?wait=true">
 </body>
 </html>
