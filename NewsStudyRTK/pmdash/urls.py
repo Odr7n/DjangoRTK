@@ -15,15 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-from django.conf.urls.static import static
-from django.conf import settings
-import main.views as main_views
+from django.urls import path
+from . import views
 
-handler404 = main_views.custom_404
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('home/', include('home.urls')),
-    path('pmdash/', include('pmdash.urls')),
-    path('', include('main.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('main/', views.mainBoard, name='main'),
+    path('all/', views.allBoards, name='all'),
+    path('account/', views.account, name='account'),
+    path('contacts/', views.contacts, name='contacts'),
+    path('', views.index, name='home'),
+]

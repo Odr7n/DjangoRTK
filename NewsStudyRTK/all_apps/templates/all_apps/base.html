@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Выпускная работа">
+    <meta name="author" content="Антон Бабий">
+    <link rel="stylesheet" href="{% static 'pmdash/css/style.css'%}">
+    <title>{% block title %} Дашборды {% endblock %}</title>
+</head>
+<body>
+    <!--Header-->
+    {% block header %}{% endblock %}
+
+    <!--Sidebar-->
+    {% block sidebar %}{% endblock %}
+
+    <!--Main-->
+    {% block main %}{% endblock %}
+
+    <!--Footer-->
+    {% block footer %}{% endblock %}
+</body>
+</html>

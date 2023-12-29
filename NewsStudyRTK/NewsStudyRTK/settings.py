@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'home',
+    'pmdash',
     'bootstrap5',
 ]
 
@@ -124,6 +125,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     "/home/static/",
+    "/pmdash/static/",
 ]
 
 # Default primary key field type
