@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <style>
+        #main_article
+        {
+            margin-top: 2em;
+            margin-left: 15em;
+        }
+
+        #main_article h2
+        {
+            font-size: 2em;
+            text-align: center;
+        }
+
+        #main_article img
+        {
+             display: block;
+             margin-left: auto;
+             margin-right: auto;
+             width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="main_article">
+        <h2> Основной дашборд </h2>
+        <img src="{% static 'pmdash/dashboards/test.png' %}">
+    </div>
+</body>
+</html>

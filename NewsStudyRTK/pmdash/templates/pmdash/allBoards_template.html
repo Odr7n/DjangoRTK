@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <style>
+        #main_article
+        {
+            margin-top: 2em;
+            margin-left: 15em;
+        }
+
+        #main_article h2
+        {
+            font-size: 2em;
+            text-align: center;
+        }
+
+        #main_article img
+        {
+             display: block;
+             margin-left: auto;
+             margin-right: auto;
+             width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="main_article">
+        <h2> Список доступных дашбордов </h2>
+        <ul>
+            <li> График синуса </li>
+            <li> График косинуса </li>
+            Б
+        </ul>
+        <img src="{% static 'pmdash/dashboards/test.png' %}">
+    </div>
+</body>
+</html>
