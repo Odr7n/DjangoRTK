@@ -22,17 +22,42 @@
              margin-right: auto;
              width: 50%;
         }
+        #flex-container-local
+        {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap:wrap;
+        }
+        .flex-item-local
+        {
+            padding: 20px;
+            text-align: center;
+            font-family: Verdana;
+        }
     </style>
 </head>
 <body>
     <div id="main_article">
         <h2> Список доступных дашбордов </h2>
-        <ul>
-            <li> График синуса </li>
-            <li> График косинуса </li>
-            Б
-        </ul>
-        <img src="{% static 'pmdash/dashboards/test.png' %}">
+        <div id="flex-container-local">
+            <div class="flex-item-local">
+                <h3>График синуса</h3>
+
+            </div>
+            <div class="flex-item-local">
+                <h3>График косинуса</h3>
+            </div>
+            <div class="flex-item-local">
+                <h3>График тангенса</h3>
+            </div>
+            <div class="flex-item-local">
+                <h3>График катангенса</h3>
+            </div>
+            <div class="flex-item-local">
+                <h3>График натурального логарифма</h3>
+            </div>
+        </div>
     </div>
 </body>
 </html>

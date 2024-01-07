@@ -89,12 +89,7 @@ a:hover, a:focus
 
 #hr-footer
 {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #2c303e;
-    margin: 1em 0;
-    padding: 0;
+
 }
 
 #main_article
