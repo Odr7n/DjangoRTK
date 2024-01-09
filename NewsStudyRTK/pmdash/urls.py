@@ -19,9 +19,10 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('main/', views.mainBoard, name='main'),
-    path('all/', views.allBoards, name='all'),
-    path('account/', views.account, name='account'),
-    path('contacts/', views.contacts, name='contacts'),
-    path('', views.index, name='home'),
+    path('main/', views.mainBoard, name='pmdash_main'),
+    path('all/', views.allBoards, name='pmdash_all'),
+    path('account/', views.account, name='pmdash_account'),
+    path('contacts/', views.contacts, name='pmdash_contacts'),
+    path('', views.index, name='pmdash_home'),
+    path('dashboards/<int:id>/', views.detail, name='pmdash_detail')
 ]

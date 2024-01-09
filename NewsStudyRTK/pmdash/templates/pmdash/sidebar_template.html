@@ -2,28 +2,33 @@
 <!--Sidebar-->
 <div class="flex-container">
     <div class="flex-item">
-        <a href="/pmdash"> Главная </a>
+        <a href="{% url 'pmdash_home' %}" {% if request.resolver_match.view_name == 'pmdash_home' %} class="sidebar_link_active" {% endif %}>
+            <i class="fa fa-house menu-icon {% if request.path == '/pmdash' %} sidebar_link_active {% endif %}"></i>
+            <div>
+                Главная
+            </div>
+        </a>
         <br>
         <br>
         <br>
         <hr/>
     </div>
     <div class="flex-item">
-        <a href="/pmdash/main"> Основной дашборд </a>
+        <a href="{% url 'pmdash_main' %}"> Основной дашборд </a>
         <br>
         <br>
         <br>
         <hr/>
     </div>
     <div class="flex-item">
-        <a href="/pmdash/all"> Список дашбордов </a>
+        <a href="{% url 'pmdash_all' %}"> Список дашбордов </a>
         <br>
         <br>
         <br>
         <hr/>
     </div>
     <div class="flex-item">
-        <a href="pmdash/account"> Аккаунт </a>
+        <a href="{% url 'pmdash_account' %}"> Аккаунт </a>
         <br>
         <br>
         <br>

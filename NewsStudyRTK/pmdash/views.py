@@ -2,13 +2,16 @@ import matplotlib.pyplot as plt
 from django.shortcuts import render
 from django.http import HttpResponse
 import matplotlib as mpl
+from .models import *
 
 
 # Create your views here.
 
 # Главная страница
 def index(request):
-    return render(request, "pmdash/index_page.html")
+    dashboard = Dashboard.objects.all().first()
+    context = {'dashboard': dashboard}
+    return render(request, "pmdash/index_page.html", context)
 
 
 # Страница отдельного дашборда
@@ -23,7 +26,7 @@ def mainBoard(request):
     fig = plt.gcf()
     fig.savefig('pmdash/static/pmdash/dashboards/test.png')
 
-    context = {'dashboard': 'pmdash/static/pmdash/dashboards/test.png',}
+    context = {'dashboard': 'pmdash/static/pmdash/dashboards/test.png', }
     return render(request, "pmdash/mainBoard_page.html", context)
 
 
@@ -40,6 +43,12 @@ def account(request):
 # Страница контактов
 def contacts(request):
     return render(request, "pmdash/contacts_page.html")
+
+
+# Детализация последней записи из БД
+def detail(request, id):
+    dashboard = Dashboard.objects.filter(id=id).first()
+    return HttpResponse(f'<h1>{dashboard.title}</h1>')
 
 
 # Страница 404
