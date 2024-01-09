@@ -48,7 +48,19 @@ def contacts(request):
 # Детализация последней записи из БД
 def detail(request, id):
     dashboard = Dashboard.objects.filter(id=id).first()
-    return HttpResponse(f'<h1>{dashboard.title}</h1>')
+
+    #Пример создания дашборда
+    # author=User.objects.get(id=request.user.id)
+    # dashboard=Dashboard(author=author, title='Заголовок1', anouncement='Анонс', text='Текст')
+    # dashboard.save()
+
+    #Пример итерирования по объектам QuerySet
+    dahsboards=Dashboard.objects.all()
+    s=''
+    for d in dahsboards:
+        s+=f'<h1>{dashboard.title}</h1><br>'
+
+    return HttpResponse(s)
 
 
 # Страница 404
