@@ -23,6 +23,12 @@ def index(request):
     tagged_dashboards = Dashboard.objects.filter(tags=tag)
     print(tagged_dashboards)
 
+    # Список всех дашбордов в разрезе пользователей
+    user_list = User.objects.all()
+    for u in user_list:
+        print(Dashboard.objects.filter(author=u))
+    print(user_list)
+
     context = {'dashboard': dashboards}
 
     return render(request, "pmdash/index_page.html", context)
@@ -63,16 +69,16 @@ def contacts(request):
 def detail(request, id):
     dashboard = Dashboard.objects.filter(id=id).first()
 
-    #Пример создания дашборда
+    # Пример создания дашборда
     # author=User.objects.get(id=request.user.id)
     # dashboard=Dashboard(author=author, title='Заголовок1', anouncement='Анонс', text='Текст')
     # dashboard.save()
 
-    #Пример итерирования по объектам QuerySet
-    dahsboards=Dashboard.objects.all()
-    s=''
+    # Пример итерирования по объектам QuerySet
+    dahsboards = Dashboard.objects.all()
+    s = ''
     for d in dahsboards:
-        s+=f'<h1>{dashboard.title}</h1><br>'
+        s += f'<h1>{dashboard.title}</h1><br>'
 
     return HttpResponse(s)
 
