@@ -9,8 +9,22 @@ from .models import *
 
 # Главная страница
 def index(request):
-    dashboard = Dashboard.objects.all().first()
-    context = {'dashboard': dashboard}
+    # dashboard = Dashboard.objects.all().first()
+    # print('Автор новости', dashboard.title, ':', dashboard.author.account.gender)
+    # context = {'dashboard': dashboard}
+
+    # dashboards = Dashboard.objects.filter(author=request.user.id)
+    # print(dashboards)
+
+    dashboards = Dashboard.objects.get(author=2)
+    # print(dashboards.tags.all())
+
+    tag = Tag.objects.filter(title='Math').first()
+    tagged_dashboards = Dashboard.objects.filter(tags=tag)
+    print(tagged_dashboards)
+
+    context = {'dashboard': dashboards}
+
     return render(request, "pmdash/index_page.html", context)
 
 
